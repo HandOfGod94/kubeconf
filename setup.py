@@ -1,8 +1,10 @@
 from setuptools import find_packages, setup
 
+from kubeconf import __version__
+
 setup(
     name="kubeconf",
-    version="0.1.0",
+    version=__version__,
     packages=find_packages(),
     entry_points={
         "console_scripts": [

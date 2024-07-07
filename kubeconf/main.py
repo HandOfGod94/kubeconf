@@ -1,8 +1,14 @@
+import argparse
 import importlib.machinery
 import os
 
+from kubeconf import __version__
+
 from .searcher import Searcher
 from .settings import app_settings
+
+parser = argparse.ArgumentParser(prog="kubeconf", description="Search for kubernetes configmap")
+parser.add_argument("-v", "--version", action="version", version=f"%(prog)s {__version__}")
 
 
 def user_settings_path():
@@ -14,6 +20,8 @@ def user_settings_path():
 
 
 def main():
+    parser.parse_args()
+
     overrides = user_settings_path()
     if overrides:
         importlib.machinery.SourceFileLoader("user_settings", user_settings_path()).load_module()
