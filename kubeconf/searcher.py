@@ -1,7 +1,8 @@
-from subprocess import check_output
-from .fzf_input import fzf_input
 import json
 import logging
+from subprocess import check_output
+
+from .fzf_input import fzf_input
 
 
 class Searcher:
@@ -30,7 +31,11 @@ class Searcher:
             configmap["data"].keys(),
             height=self.config.size,
             header=f"Searching in {selected_configmap} of {self.current_namespace}",
-            preview=f"echo '{json.dumps(configmap['data'])}' | jq  --raw-output '.{{}}'",
+            preview=(
+                ""
+                if not self.config.show_preview
+                else f"echo '{json.dumps(configmap['data'])}' | jq  --raw-output '.{{}}'"
+            ),
             position=f"{self.config.preview_position}:{self.config.preview_size}:wrap",
         )
 

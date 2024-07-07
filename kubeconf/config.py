@@ -21,25 +21,29 @@ class BaseSettings(metaclass=KubeconfSettings):
     Base settings class for kubeconf. This class should be inherited by the user's custom settings class.
 
     Attributes:
-        select_hint_text (str): The hint text to show on fzf prompts. E.g. "Select a configmap"
-        size (str): The size of the whole fzf window. E.g. "30%" or "20%"
-        show_preview (bool): Whether to show the fzf preview window or not.
-        preview_position (str): The position of the fzf preview window (up, down, left, right)
-        preview_size (int): The size of the preview window. e.g. (1,2,3,4,50)
+        select_hint_text (str | Callable[[], str] ): The hint text to show on fzf prompts. E.g. "Select a configmap"
+        size (str | Callable[[], str]): The size of the whole fzf window. E.g. "30%" or "20%"
+        show_preview (bool | Callable[[], bool]): Whether to show the fzf preview window or not.
+        preview_position (str | Callable[[], str]): The position of the fzf preview window (up, down, left, right)
+        preview_size (int | Callable[[], int]): The size of the preview window. e.g. (1,2,3,4,50)
+
+    These attributes can be callable functions that return the desired value. This is useful when the value needs to be
+    calculated at runtime. For example, the `size` attribute can be a function that returns the size based on the screen.
 
     Example:
+
     ```python
-    from kubeconf.config import BaseSettings
+    class MyCustomSettings(kubeconf.BaseSettings):
+        @staticmethod
+        def calculated_size():
+            return "30%"
 
-    class MyCustomSettings(BaseSettings):
         select_hint_text = "Select a configmap"
-        size = "30%"
-        show_preview = True
+        size = calculated_size
+        show_preview = lambda: True # or it can even be a lambda
         preview_position = "up"
-        preview_size = 5
+        preview_size = 3
     ```
-
-
     """
 
     select_hint_text: str | Callable[[], str]

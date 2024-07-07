@@ -1,9 +1,13 @@
-from kubeconf.config import BaseSettings
+import kubeconf
 
 
-class MyCustomSettings(BaseSettings):
+class MyCustomSettings(kubeconf.BaseSettings):
+    @staticmethod
+    def calculated_size():
+        return "30%"
+
     select_hint_text = "Select a configmap"
-    size = "30%"
-    show_preview = True
+    size = calculated_size
+    show_preview = lambda: False  # or it can even be a lambda
     preview_position = "up"
-    preview_size = 5
+    preview_size = 3
