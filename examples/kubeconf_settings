@@ -1,4 +1,4 @@
-#!/usr/bin/env .venv/bin/python
+#!/usr/bin/env $(brew --prefix myshellprogram)/libexec/bin/python
 from kubeconf import BaseConfig, KubeconfSettings
 
 
