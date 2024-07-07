@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="kubeconf",
-    version="dev",
+    version="0.1.0-dev",
     packages=find_packages(),
     entry_points={
         "console_scripts": [
