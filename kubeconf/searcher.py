@@ -28,6 +28,7 @@ class Searcher:
         configmap = json.loads(configmap)
         key = fzf_input(
             configmap["data"].keys(),
+            height=self.config.size,
             header=f"Searching in {selected_configmap} of {self.current_namespace}",
             preview=f"echo '{json.dumps(configmap['data'])}' | jq  --raw-output '.{{}}'",
             position=f"{self.config.preview_position}:{self.config.preview_size}:wrap",
@@ -35,10 +36,8 @@ class Searcher:
 
         logging.info(f"Searched in {selected_configmap} of {self.current_namespace}")
         print(json.dumps({key: configmap["data"][key]}, indent=2))
-        # run(f"echo {configmap['data'][key]} | pbcopy", shell=True)
-        # print("Copied value to clipboard")
 
     def execute(self):
-        selected_configmap = fzf_input(self.configmaps(), header=self.config.select_hint_text)
+        selected_configmap = fzf_input(self.configmaps(), height=self.config.size, header=self.config.select_hint_text)
 
         self.lookup_config(selected_configmap)
