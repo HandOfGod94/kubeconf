@@ -13,10 +13,14 @@ def user_settings_path():
         return config_path
 
 
-if __name__ == "__main__":
+def main():
     overrides = user_settings_path()
     if overrides:
         importlib.machinery.SourceFileLoader("user_settings", user_settings_path()).load_module()
 
     config = app_settings[-1]()  # get the last loaded settings from decorator
     Searcher(config).execute()
+
+
+if __name__ == "__main__":
+    main()
