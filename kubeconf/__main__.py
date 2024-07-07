@@ -1,5 +1,5 @@
 from .searcher import Searcher
-from .config import MyCustomConfig
+from .settings import MyCustomSettings
 
-config = MyCustomConfig()
+config = MyCustomSettings()
 Searcher(config).execute()

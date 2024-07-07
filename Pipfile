@@ -13,6 +13,7 @@ python-lsp-server = "*"
 python-lsp-black = "*"
 python-lsp-isort = "*"
 pytest = "*"
+pylsp-mypy = "*"
 
 [requires]
 python_version = "3.10"
