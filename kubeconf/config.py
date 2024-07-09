@@ -31,4 +31,4 @@ class BaseConfig(metaclass=KubeconfMeta):
     """The position of the fzf preview window (up, down, left, right)"""
 
     preview_size: int | Callable[[], int]
-    """The size of the preview window. e.g. (1,2,3,4,50) """
+    """The size of the preview window. (in terminal lines). e.g. (1,2,3,4,50) """
