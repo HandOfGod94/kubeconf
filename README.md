@@ -59,3 +59,7 @@ optional arguments:
 ## Screenshots
 ![screenshot](./docs/screenshot.png)
 ![screenshot-2](./docs/screenshot-2.png)
+
+## Related repo:
+- [kubesecret](https://github.com/HandOfGod94/kubesecret): A similar tool to view secrets in kubernetes cluster
+
