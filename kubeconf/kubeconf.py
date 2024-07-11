@@ -35,7 +35,7 @@ class KubeconfSearcher:
 
     def configmaps(self):
         return (
-            check_output("kubectl get configmaps | tail -n +2 | awk '{print $1}'", shell=True)
+            check_output(f"kubectl get configmaps -n {self.namespace} | tail -n +2 | awk '{{print $1}}'", shell=True)
             .strip()
             .decode("utf-8")
             .splitlines()
