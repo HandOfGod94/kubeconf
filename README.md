@@ -29,7 +29,6 @@ kubeconf # to launch the search window with default config
 ```
 
 ```bash
-
 kubeconf -n <namespace> # to search of configmaps in a specific namespace
 ```
 
