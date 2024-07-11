@@ -8,7 +8,7 @@ Kubeconf is a simple wrapper over fzf and kubectl to view configmaps effectively
 * [Quickstart](#quickstart)
 * [Usage](#usage)
 * [Screenshots](#screenshots)
-
+* [Related repo](#related-repo)
 
 ## Installation
 
@@ -60,6 +60,6 @@ optional arguments:
 ![screenshot](./docs/screenshot.png)
 ![screenshot-2](./docs/screenshot-2.png)
 
-## Related repo:
+## Related repo
 - [kubesecret](https://github.com/HandOfGod94/kubesecret): A similar tool to view secrets in kubernetes cluster
 
