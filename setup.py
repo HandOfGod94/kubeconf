@@ -8,12 +8,12 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "kubeconf = kubeconf.main:main",
+            "kubeconf = kubeconf.kubeconf:execute",
         ],
     },
     author="Gahan Rakholia",
     author_email="gahan94rakh@gmail.com",
     description="A small wrapper around fzf and kubectl to view configmap with preview",
     url="https://github.com/handofgod94/kubeconf",
-    python_requires=">=3.8",
+    python_requires=">=3.6",
 )
