@@ -2,6 +2,13 @@
 
 Kubeconf is a simple wrapper over fzf and kubectl to view configmaps effectively.
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Quickstart](#quickstart)
+* [Usage](#usage)
+* [Screenshots](#screenshots)
+
 
 ## Installation
 
@@ -18,7 +25,10 @@ kubeconf --version
 ## Quickstart
 
 ```bash
-kubeconf
+kubeconf # to launch the search window with default config
+```
+
+```bash
 
 kubeconf -n <namespace> # to search of configmaps in a specific namespace
 ```
@@ -46,6 +56,6 @@ optional arguments:
 
 ```
 
-### Screenshots
+## Screenshots
 ![screenshot](./docs/screenshot.png)
 ![screenshot-2](./docs/screenshot-2.png)
