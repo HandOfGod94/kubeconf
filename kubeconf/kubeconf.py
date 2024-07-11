@@ -42,7 +42,7 @@ class KubeconfSearcher:
         )
 
     def execute(self):
-        selected_configmap = fzf_input(self.configmaps(), height=self.size, header="Select a configmap")
+        selected_configmap = fzf_input(self.configmaps(), height=self.size, header=f"Select a configmap in namespace: {self.namespace}")
         if not selected_configmap or selected_configmap == "":
             return
 
